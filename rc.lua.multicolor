@@ -448,12 +448,12 @@ globalkeys = awful.util.table.join(
     awful.key({ altkey,           }, "w",      function () myweather.show(7) end),
 
     -- ALSA volume control
-    awful.key({ altkey }, "Up",
+    awful.key({ altkey }, "Prior",
         function ()
             os.execute(string.format("amixer set %s 1%%+", volumewidget.channel))
             volumewidget.update()
         end),
-    awful.key({ altkey }, "Down",
+    awful.key({ altkey }, "Next",
         function ()
             os.execute(string.format("amixer set %s 1%%-", volumewidget.channel))
             volumewidget.update()
