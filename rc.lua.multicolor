@@ -65,11 +65,11 @@ editor     = os.getenv("EDITOR") or "nano" or "vi"
 editor_cmd = terminal .. " -e " .. editor
 
 -- user defined
-browser    = "dwb"
-browser2   = "iron"
-gui_editor = "gvim"
+browser    = "google-chrome"
+browser2   = "firefox"
+gui_editor = "atom"
 graphics   = "gimp"
-mail       = terminal .. " -e mutt "
+mail       = "thunderbird"
 
 local layouts = {
     awful.layout.suit.floating,				-- 1
