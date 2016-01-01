@@ -15,6 +15,8 @@ local beautiful = require("beautiful")
 local naughty   = require("naughty")
 local drop      = require("scratchdrop")
 local lain      = require("lain")
+
+local keydoc = require("keydoc")
 -- }}}
 
 -- {{{ Error handling
@@ -210,7 +212,7 @@ memwidget = lain.widgets.mem({
 -- Keyboard map indicator and changer
 kbdcfg = {}
 kbdcfg.cmd = "setxkbmap"
-kbdcfg.layout = { { "us", "" , "US" }, { "ru", "dvorak" , "RU" } }
+kbdcfg.layout = { { "us", "", "US" }, { "ru", "", "RU" } }
 kbdcfg.current = 1  -- us is our default layout
 kbdcfg.widget = wibox.widget.textbox()
 kbdcfg.widget:set_text(" " .. kbdcfg.layout[kbdcfg.current][3] .. " ")
@@ -346,6 +348,10 @@ root.buttons(awful.util.table.join(
     awful.button({ }, 4, awful.tag.viewnext),
     awful.button({ }, 5, awful.tag.viewprev)
 ))
+
+kbdcfg.widget:buttons(
+   awful.util.table.join(awful.button({ }, 1, function () kbdcfg.switch() end))
+)
 -- }}}
 
 -- {{{ Key bindings
