@@ -458,17 +458,17 @@ globalkeys = awful.util.table.join(
     awful.key({ altkey,           }, "w",      function () myweather.show(7) end),
 
     -- ALSA volume control
-    awful.key({ altkey }, "Prior",
+    awful.key({ "Control" }, "Prior",
         function ()
-            os.execute(string.format("amixer set %s 1%%+", volumewidget.channel))
+            os.execute(string.format("amixer set %s 4%%+", volumewidget.channel))
             volumewidget.update()
         end),
-    awful.key({ altkey }, "Next",
+    awful.key({ "Control" }, "Next",
         function ()
-            os.execute(string.format("amixer set %s 1%%-", volumewidget.channel))
+            os.execute(string.format("amixer set %s 4%%-", volumewidget.channel))
             volumewidget.update()
         end),
-    awful.key({ altkey }, "m",
+    awful.key({ "Control" }, "m",
         function ()
             os.execute(string.format("amixer set %s toggle", volumewidget.channel))
             volumewidget.update()
