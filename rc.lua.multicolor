@@ -361,13 +361,16 @@ globalkeys = awful.util.table.join(
     awful.key({ altkey }, "p", function() os.execute("screenshot") end),
 
     -- Tag browsing
-    awful.key({ modkey }, "Left",   awful.tag.viewprev       ),
-    awful.key({ modkey }, "Right",  awful.tag.viewnext       ),
-    awful.key({ modkey }, "Escape", awful.tag.history.restore),
+    keydoc.group("Tag management"),
+    awful.key({ modkey }, "Left",   awful.tag.viewprev, "Previous tag" ),
+    awful.key({ modkey }, "Right",  awful.tag.viewnext, "Next tag"     ),
+    awful.key({ modkey }, "Escape", awful.tag.history.restore, "Focus previously selected tag set"),
 
     -- Non-empty tag browsing
-    awful.key({ altkey }, "Left", function () lain.util.tag_view_nonempty(-1) end),
-    awful.key({ altkey }, "Right", function () lain.util.tag_view_nonempty(1) end),
+    awful.key({ altkey }, "Left", function () lain.util.tag_view_nonempty(-1) end, "Previous non-empty tag"),
+    awful.key({ altkey }, "Right", function () lain.util.tag_view_nonempty(1) end, "Next non-empty tag"),
+
+    awful.key({ "Control" }, "Shift_L", function () kbdcfg.switch() end),
 
     -- Default client focus
     awful.key({ altkey }, "k",
@@ -409,6 +412,8 @@ globalkeys = awful.util.table.join(
             mymainmenu:show({ keygrabber = true })
         end),
 
+    keydoc.group("Misc"),
+
     -- Show/Hide Wibox
     awful.key({ modkey }, "b", function ()
         mywibox[mouse.screen].visible = not mywibox[mouse.screen].visible
@@ -416,6 +421,7 @@ globalkeys = awful.util.table.join(
     end),
 
     -- Layout manipulation
+    keydoc.group("Layout manipulation"),
     awful.key({ modkey, "Shift"   }, "j", function () awful.client.swap.byidx(  1)    end),
     awful.key({ modkey, "Shift"   }, "k", function () awful.client.swap.byidx( -1)    end),
     awful.key({ modkey, "Control" }, "j", function () awful.screen.focus_relative( 1) end),
@@ -439,7 +445,7 @@ globalkeys = awful.util.table.join(
     awful.key({ modkey, "Control" }, "n",      awful.client.restore),
 
     -- Standard program
-    awful.key({ modkey,           }, "Return", function () awful.util.spawn(terminal) end),
+    awful.key({ modkey,           }, "Return", function () awful.util.spawn(terminal) end, "Spawn a terminal"),
     awful.key({ modkey, "Control" }, "r",      awesome.restart),
     awful.key({ modkey, "Shift"   }, "q",      awesome.quit),
 
@@ -490,7 +496,9 @@ globalkeys = awful.util.table.join(
                   mypromptbox[mouse.screen].widget,
                   awful.util.eval, nil,
                   awful.util.getdir("cache") .. "/history_eval")
-              end)
+              end),
+
+    awful.key({ modkey, }, "F1", keydoc.display)
 )
 
 clientkeys = awful.util.table.join(
