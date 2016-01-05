@@ -10,7 +10,7 @@
 theme                               = {}
 
 theme.confdir                       = os.getenv("HOME") .. "/.config/awesome/themes/multicolor"
-theme.wallpaper                     = theme.confdir .. "/wall.png"
+theme.wallpaper                     = theme.confdir .. "/wall.jpg"
 
 theme.font                          = "Terminus 8"
 --theme.taglist_font                =
@@ -34,7 +34,7 @@ theme.fg_white                      = "#aaaaaa"
 theme.fg_blu                        = "#8ebdde"
 theme.border_width                  = "1"
 theme.border_normal                 = "#1c2022"
-theme.border_focus                  = "#606060"
+theme.border_focus                  = "#00a6dc"
 theme.border_marked                 = "#3ca4d8"
 theme.menu_width                    = "110"
 theme.menu_border_width             = "0"
