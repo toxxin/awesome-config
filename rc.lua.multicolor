@@ -631,6 +631,11 @@ awful.rules.rules = {
           properties = { floating = true,
                          width = 1000,
                          heigh = 800 }, callback = awful.placement.centered },
+
+    { rule = { class = "VirtualBox" },
+          properties = { floating = true,
+                         width = 800,
+                         height = 800 }, callback = awful.placement.centered },
 }
 -- }}}
 
