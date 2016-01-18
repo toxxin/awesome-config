@@ -635,6 +635,18 @@ awful.rules.rules = {
           properties = { floating = true,
                          width = 800,
                          height = 800 }, callback = awful.placement.centered },
+
+    { rule = { class = "obs" },
+          properties = { floating = true,
+                         tag = tags[1][6],
+                         width = 900,
+                         height = 500 }, },
+
+    { rule = { class = "transmission-gtk" },
+          properties = { floating = true,
+                         tag = tags[1][6],
+                         width = 900,
+                         height = 500 }, },
 }
 -- }}}
 
