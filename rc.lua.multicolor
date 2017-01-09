@@ -510,7 +510,10 @@ globalkeys = awful.util.table.join(
                   awful.util.getdir("cache") .. "/history_eval")
               end),
 
-    awful.key({ modkey, }, "F1", keydoc.display)
+    awful.key({ modkey, }, "F3", keydoc.display),
+
+    awful.key({ modkey, }, "F1", function () awful.screen.focus(2) end),
+    awful.key({ modkey, }, "F2", function () awful.screen.focus(1) end)
 )
 
 clientkeys = awful.util.table.join(
